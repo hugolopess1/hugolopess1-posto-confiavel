@@ -16,10 +16,7 @@ const isWeb = Platform.OS === 'web';
 let MapView: any = View;
 let Marker: any = View;
 
-const API_URL =
-  Platform.OS === 'web'
-    ? 'http://localhost:3333'
-    : 'http://192.168.0.105:3333';
+const API_URL = "https://posto-confiavel-backend-production.up.railway.app"
 
 const fallbackStations = [
   {

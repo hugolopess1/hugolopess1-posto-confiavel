@@ -7,6 +7,8 @@ import {
   View,
 } from 'react-native';
 
+import Map from './Map';
+
 const API_URL =
   'https://posto-confiavel-api.onrender.com';
 
@@ -36,6 +38,13 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
+
+      {/* MAPA */}
+      <View style={styles.mapContainer}>
+        <Map stations={stations} />
+      </View>
+
+      {/* LISTA */}
       <ScrollView
         contentContainerStyle={
           styles.content
@@ -60,9 +69,24 @@ export default function App() {
             </Text>
 
             <Text>
-              Gasolina:{' '}
+              Gasolina: R${' '}
               {station.gasolinePrice}
             </Text>
+
+            <Text>
+              ⭐ Nota: {station.rating}
+            </Text>
+
+            <Text>
+              👨 Atendimento:{' '}
+              {station.service}
+            </Text>
+
+            <Text>
+              ⛽ Qualidade:{' '}
+              {station.fuelQuality}
+            </Text>
+
           </View>
         ))}
       </ScrollView>
@@ -73,7 +97,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f3f4f6',
+    backgroundColor: '#111827',
+  },
+
+  mapContainer: {
+    height: 300,
+    width: '100%',
   },
 
   content: {
@@ -84,10 +113,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: '900',
     marginBottom: 20,
+    color: 'white',
   },
 
   card: {
-    backgroundColor: 'white',
+    backgroundColor: '#1f2937',
     padding: 16,
     borderRadius: 16,
     marginBottom: 12,
@@ -97,5 +127,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 8,
+    color: 'white',
   },
 });
